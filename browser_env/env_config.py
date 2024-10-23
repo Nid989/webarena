@@ -9,15 +9,8 @@ WIKIPEDIA = os.environ.get("WIKIPEDIA", "")
 MAP = os.environ.get("MAP", "")
 HOMEPAGE = os.environ.get("HOMEPAGE", "")
 
-assert (
-    REDDIT
-    and SHOPPING
-    and SHOPPING_ADMIN
-    and GITLAB
-    and WIKIPEDIA
-    and MAP
-    and HOMEPAGE
-), (
+# NOTE: the assertion error, requires all the websites to be specified. Need to fix this, beforehand. 
+assert (url for url in [REDDIT, SHOPPING, SHOPPING_ADMIN, GITLAB, WIKIPEDIA, MAP, HOMEPAGE] if url), (
     f"Please setup the URLs to each site. Current: \n"
     + f"Reddit: {REDDIT}\n"
     + f"Shopping: {SHOPPING}\n"
@@ -27,7 +20,6 @@ assert (
     + f"Map: {MAP}\n"
     + f"Homepage: {HOMEPAGE}\n"
 )
-
 
 ACCOUNTS = {
     "reddit": {"username": "MarvelsGrantMan136", "password": "test1234"},
